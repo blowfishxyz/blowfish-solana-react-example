@@ -21,22 +21,31 @@ export function BlowfishEvaluation() {
   );
   return (
     <div>
-      <div>Action: {txnsScanResult && txnsScanResult.evaluation?.action}</div>
-      <div>
-        Warnings:{" "}
-        {txnsScanResult && JSON.stringify(txnsScanResult.evaluation?.warnings)}
-      </div>
-      <div>
-        <div>Simulation results:</div>
-        <pre style={{ fontSize: 14 }}>
-          {txnsScanResult &&
-            JSON.stringify(
-              txnsScanResult.evaluation?.simulationResults,
-              null,
-              "\t"
-            )}
-        </pre>
-      </div>
+      {txnsScanResult.isLoading ? (
+        <>Loading...</>
+      ) : (
+        <div>
+          <div>
+            Action: {txnsScanResult && txnsScanResult.evaluation?.action}
+          </div>
+          <div>
+            Warnings:{" "}
+            {txnsScanResult &&
+              JSON.stringify(txnsScanResult.evaluation?.warnings)}
+          </div>
+          <div>
+            <div>Simulation results:</div>
+            <pre style={{ fontSize: 14 }}>
+              {txnsScanResult &&
+                JSON.stringify(
+                  txnsScanResult.evaluation?.simulationResults,
+                  null,
+                  "\t"
+                )}
+            </pre>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
