@@ -165,8 +165,6 @@ export const useFetchBlowfishEvaluation = (
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
       headers.append("X-API-KEY", process.env.REACT_APP_BLOWFISH_API_KEY || "");
-      headers.append("Origin", "http://localhost:8000/");
-      headers.append("Access-Control-Request-Method", "POST");
       const params = {
         transactions,
         userAccount,
